@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
+
+#define TAM 6
+
+
 void Tatli()
 {
 
@@ -15,30 +20,43 @@ void Limpartela()
     system("cls||clear");
 }
 
-void imprimir(int numero)
+void paresOUimares(int numero[])
 {
+    int i, pares = 0, impares = 0;
+    
 
-    if (numero % 2 == 0)
+    for (i = 0; i < TAM; i++)
     {
-        printf("%d - par.\n", numero);
+
+        if (numero[i] % 2 == 0)
+        {
+            pares++;
+        }
+        else
+        {
+            impares++;
+        }
     }
-    else
-    {
-        printf("%d - impar.\n", numero);
-    }
+    printf("\nQuantidade de pares:%d", pares);
+    printf("\nQuantidade de impares:%d", impares);
 }
-
 int main()
 {
 
-    int numero;
+    int numero[TAM], i;
+    int pares;
+    int impares;
+    
     // Solicitando dados
     Tatli();
+    for (i = 0; i < TAM; i++)
+    {
 
-    printf("\nDigite um numero:");
-    scanf("%d", &numero);
+        printf("\nDigite o %dº numero:", i + 1);
+        scanf("%d", &numero[i]);
+    }
 
     Limpartela();
 
-    imprimir(numero);
+    paresOUimares(numero);
 }
